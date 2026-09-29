@@ -23,13 +23,13 @@ main_app.include_router(
     prefix=settings.api.prefix,
 )
 
-# app.get("/")
+# main_app.get("/")
 # def root():
 #     pass
 
 if __name__ == "__main__":
     uvicorn.run(
-        "main:app",
+        "main:main_app",
         host=settings.run.host,
         port=settings.run.port,
         reload=True,
