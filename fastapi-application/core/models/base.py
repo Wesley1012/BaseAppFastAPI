@@ -18,5 +18,3 @@ class Base(DeclarativeBase):
 
 
 
-# class UserPost(Base):
-#     __tablename__ = "user_posts"
