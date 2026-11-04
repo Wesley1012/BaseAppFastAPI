@@ -8,8 +8,14 @@ class RunConfig(BaseModel):
     host: str = "0.0.0.0"
     port: int = 8000
 
+class ApiV1Prefix(BaseModel):
+    prefix: str = "/v1"
+    users: str = "/users"
+
+
 class ApiPrefix(BaseModel):
     prefix: str = "/api"
+    v1: ApiV1Prefix = ApiV1Prefix()
 
 class DatabaseConfig(BaseModel):
     url: PostgresDsn
@@ -40,6 +46,7 @@ class Settings(BaseSettings):
     run: RunConfig = RunConfig()
     api: ApiPrefix = ApiPrefix()
     db: DatabaseConfig
+
 
 settings = Settings()
 print("DB URL FROM SETTINGS:", settings.db.url)
